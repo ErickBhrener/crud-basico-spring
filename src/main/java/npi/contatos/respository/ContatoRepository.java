@@ -14,4 +14,6 @@ public interface ContatoRepository {
 	
 	void remover(Contato contato);
 
+	void editar(Contato contato, Integer id);
+
 }

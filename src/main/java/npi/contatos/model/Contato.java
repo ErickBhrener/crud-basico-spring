@@ -14,6 +14,7 @@ public class Contato {
 	private String nome;
 	private String telefone;
 	private String email;
+	private String endereco;
 
 	public Integer getId() {
 		return id;
@@ -47,4 +48,19 @@ public class Contato {
 		this.email = email;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	@Override
+	public String toString() {
+		return "Contato [id=" + id + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email + ", endereco="
+				+ endereco + "]";
+	}
+	
+	
 }

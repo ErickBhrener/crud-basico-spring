@@ -39,17 +39,35 @@
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.3.1.Final</hibernate.version>
 		<hibernate.validator.version>5.1.0.Final</hibernate.validator.version>
-
+		<jackson.databind-version>2.2.3</jackson.databind-version>
+		<jackson.version>1.9.10</jackson.version>
 		<!-- Database access -->
 		<postgresql.version>9.4-1204-jdbc42</postgresql.version>
-
+		<bootstrap.version>3.1.1</bootstrap.version>
+		<jquery.version>2.1.0</jquery.version>
+		<jquery-ui.version>1.10.3</jquery-ui.version>
 		<!-- Spring Security -->
 		<spring.security.version>3.2.1.RELEASE</spring.security.version>
-
+		
 	</properties>
 	
 	<dependencies>
-
+		<dependency>
+            <groupId>net.sf.flexjson</groupId>
+            <artifactId>flexjson</artifactId>
+            <version>2.1</version>
+        </dependency>
+		<!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency> 
 		<!-- Java EE / Java SE dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -72,7 +90,24 @@
 			<artifactId>validation-api</artifactId>
 			<version>${java.validation.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${bootstrap.version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>${jquery.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-ui</artifactId>
+			<version>${jquery-ui.version}</version>
+		</dependency>
+		
 		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -150,6 +185,10 @@
 			<artifactId>postgresql</artifactId>
 			<version>${postgresql.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery-ui</artifactId>
+			<version>1.9.2</version>
+		</dependency>
 	</dependencies>
 </project>

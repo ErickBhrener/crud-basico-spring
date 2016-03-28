@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -15,6 +16,7 @@ import npi.contatos.model.Contato;
 public class ContatoRepositoryImpl implements ContatoRepository {
 	
 	protected EntityManager em;
+	
 	
 	@PersistenceContext
 	public void setEntityManager(EntityManager em) {
@@ -44,5 +46,15 @@ public class ContatoRepositoryImpl implements ContatoRepository {
 		em.remove(em.merge(contato));
 		
 	}
-
+	
+	@Override
+	@Transactional
+	public void editar(Contato contato,Integer id) {
+		Contato old = (Contato) em.find(Contato.class, id);
+		old.setEmail(contato.getEmail());
+		old.setNome(contato.getNome());
+		old.setTelefone(contato.getTelefone());
+		old.setEndereco(contato.getEndereco());
+		em.persist(old);
+	}
 }

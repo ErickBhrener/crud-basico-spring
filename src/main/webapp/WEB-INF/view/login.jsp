@@ -6,47 +6,23 @@
 <html>
 <head>
 	<title>Login</title>
+	<jsp:include page="fragments/htmlHead.jsp" />
 </head>
-
 <body>
-
-	<div class="login-container" align="center">
-		<div class="login-form">
-			
-			<div class="login-text">
-				<span id="title">Login</span>
-			</div>
-				<form:form role="form" servletRelativeAction="/j_spring_security_check"  method="post" id="login-form" autocomplete="off" class="form-horizontal">
-	
-					<c:if test="${not empty erro}">
-						<div class="login-error"><i class="fa fa-times-circle-o"></i> ${erro}</div>
-					</c:if>
-		
-					<c:if test="${not empty msg}">
-						<div class="msg"> <i class="fa fa-info-circle"></i>${msg}</div>
-					</c:if>
-				
-					<div class="form-group">
-						<div id="inputLogin" class="form-inline input-group input-login">
-						    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-							<input type="text" name="j_username" id="login" class="form-control" placeholder="login">
-						</div>
-					</div>
-										
-					<div class="form-group">
-						<div id="inputSenha" class="form-inline input-group input-login">
-						    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-						    <input type="password" name="j_password" id="key" class="form-control" placeholder="senha">
-						</div>
-					</div>
-					
-
-					<div style="text-align: center;">
-						<button class="btn btn-siaf btn-login hvr-icon-forward" name="submit" type="submit" value="Login" value="Login">Login</button>
-					</div>
-				</form:form>
-		</div>
-	</div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Login</h1>
+            <div class="account-wall">
+                <form:form role="form" servletRelativeAction="/j_spring_security_check" method="post" id="login-form" autocomplete="off" class="form-horizontal">
+	                <input type="text" name="j_username" id="login" class="form-control" placeholder="login" required autofocus>
+	                <input type="password" name="j_password" id="key" class="form-control" placeholder="senha" required>
+	                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login" value="Login">
+	                    Login</button>
+                </form:form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

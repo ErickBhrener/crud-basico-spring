@@ -25,10 +25,15 @@ public class ContatoController {
 	
 	@RequestMapping(value = "/listar")
 	public String listar(Model model) {
-		model.addAttribute("contatos", contatoService.findAll());
+//		model.addAttribute("contatos", contatoService.findAll());
 		return "listar";
 	}
 	
+	@RequestMapping(value = "/listarTable", method = RequestMethod.GET)
+	public String listarTable(Model model) {
+//		model.addAttribute("contatos", contatoService.findAll());
+		return "listarTable";
+	}
 	@RequestMapping(value = "/adicionar", method = RequestMethod.GET)
 	public String adicionarForm(Model model) {
 		model.addAttribute("contato", new Contato());
@@ -46,5 +51,21 @@ public class ContatoController {
 		contatoService.remover(id);
 		return "redirect:/listar";
 	}
-
+	
+	@RequestMapping(value="/detalheContato/{id}", method= RequestMethod.GET)
+	public String detalheContato(@PathVariable("id") Integer id, Model model){
+		model.addAttribute("contato", contatoService.detalheContato(id));		
+		return "detalhe";
+	}
+	
+	@RequestMapping(value="/editar/{id}",method=RequestMethod.GET)
+	public String editarForm(@PathVariable("id") Integer id, Model model){
+		model.addAttribute("contato", contatoService.detalheContato(id));
+		return "editar";
+	}
+	@RequestMapping(value="/editar/{id}",method=RequestMethod.POST)
+	public String editar(@ModelAttribute("contato") Contato contato, @PathVariable("id") Integer id){
+		contatoService.editar(contato, id);
+		return "redirect:/listar";
+	}
 }
