@@ -17,5 +17,4 @@ public interface ContatoService {
 
 	void editar(Contato contato, Integer id);
 	
-	DataTableResponse<Contato> desenharTabela(String json);
 }

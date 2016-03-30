@@ -10,22 +10,32 @@
 		<script type="text/javascript" src="<c:url value="resources/js/dataTable.js" />"></script>
 	</head>
 	<body>
-		<div class="container">
-			<jsp:include page="fragments/header.jsp" />		
+		
+		<jsp:include page="fragments/header.jsp" />
+		<div class="container">		
 			<h2>Contatos</h2>
 			<table id="contatoTable" class="table table-striped table-bordered dt-responsive nowrap">
 				<thead>
-				<tr>
-                	<th>Nome</th>
-              	</tr>
+					<tr>
+	                	<th>Id</th>
+	                	<th>Nome</th>
+	                	<th>Telefone</th>
+	                	<th>Email</th>
+	                	<th>Endereco</th>
+	              	</tr>
 				</thead>
 				<tbody>
-<%-- 				<c:forEach items="${contatos}" var="contato"> --%>
-					<tr>
-						<td></td>
-					</tr>
-<%-- 				</c:forEach> --%>
+					<c:forEach items="${contatos}" var="contato">
+						<tr>
+							<td>${contato.id}</td>
+							<td>${contato.nome}</td>
+							<td>${contato.telefone}</td>
+							<td>${contato.email}</td>
+							<td>${contato.endereco}</td>
+						</tr> 
+					</c:forEach>
 				</tbody>
+					
 			</table>
 			<jsp:include page="fragments/footer.jsp" />
 		</div>

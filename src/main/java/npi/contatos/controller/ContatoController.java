@@ -25,7 +25,7 @@ public class ContatoController {
 	
 	@RequestMapping(value = "/listar")
 	public String listar(Model model) {
-//		model.addAttribute("contatos", contatoService.findAll());
+		model.addAttribute("contatos", contatoService.findAll());
 		return "listar";
 	}
 	
